@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, inicial-scale=1.0'=>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name='theme-color' content='#444'>
+    <link rel='stylesheet' href='./src/css/style.css'>
+    <title> Sort Animation </title>
+</head>
+
+<body>
+    <h1>Animation Sort</h1>
+</body>
+
+<div class="canvas-setup">
+    <div class="canvas-start component">
+        <p>Selecione o tipo</p>
+        <span class="canvas-setup-type">
+            <label for="bubbleSort"> bubbleSort </label>
+            <input type="radio" name="orderType" id="bubbleSort" name="bubbleSort" checked />
+        </span>
+        <span class="canvas-setup-type">
+            <label for="quickSort"> quickSort </label>
+            <input type="radio" name="orderType" id="quickSort" name="quickSort" />
+        </span>
+    </div>
+
+    <div class="canvas-start component">
+        <label for="canvas-input">Selecione a quantidade de numeros do array</label>
+        <input type="number" value="200" placeholder="200" id="canvas-number-input" />
+        <button id="canvas-init-button"> Ordene! </button>
+    </div>
+</div>
+
+<div class="canvas-wrapper component"></div>
+
+</html>
