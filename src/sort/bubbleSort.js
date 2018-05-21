@@ -2,8 +2,7 @@
 
 export default class BubbleSort {
   constructor(options = {}) {
-    this.array = options.array;
-    this.requestAnimationCallback = options.requestAnimationCallback;
+    Object.assign(this, options);
     this.continuousLoop();
   }
   
