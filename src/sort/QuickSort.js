@@ -2,12 +2,14 @@
 
 export default class QuickSort {
   constructor(options = {}) {
-    this.array = options.array;
+    Object.assign(this, options);
     const len = this.array.length;
-
     this.sort(this.array, 0, len - 1);
+    console.log(this.array);
   }
+  loop() {
 
+  }
   sort(array, left, right) {
     var pivot = this.partitionLomuto(array, left, right); // you can play with both partition
 
@@ -18,7 +20,6 @@ export default class QuickSort {
       this.sort(array, pivot, right);
     }
     return array;
-
   }
 
   partitionLomuto(array, left, right) {
@@ -40,5 +41,16 @@ export default class QuickSort {
     const temp = this.array[i];
     this.array[i] = this.array[j];
     this.array[j] = temp;
+    window.requestAnimationFrame(() => {
+      this.callAnimation
+    })
+  }
+
+  callAnimation() {
+    if (this.requestAnimationCallback) {
+      setTimeout( ()=> {
+        this.requestAnimationCallback(this.array);
+      },15)
+    }
   }
 }
