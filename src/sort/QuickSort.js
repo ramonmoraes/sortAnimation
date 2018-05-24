@@ -34,25 +34,9 @@ class QuickSort {
     }
 
     this.swap(i + 1, pivot);
-    // console.log({
-    //   begin,
-    //   end,
-    //   i,
-    //   j
-    // })
-    // setTimeout(()=> {
-      this.sort(this.array, begin, i);
-    // },1500)
-    // setTimeout(()=> {
-      this.sort(this.array, i + 1, end);
-    // },1500)
-    
+    this.sort(this.array, begin, i);
     console.log(this.array);
-    
-    // const smallerArray = this.array.slice(begin, i + 2);
-    // const biggerArray = this.array.slice(i + 2, end);
-    // console.log(smallerArray);
-    // console.log(biggerArray)
+    this.sort(this.array, i + 1, end);
   }
 
   swap(i, j) {
