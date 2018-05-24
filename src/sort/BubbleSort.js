@@ -5,7 +5,7 @@ export default class BubbleSort {
     Object.assign(this, options);
     this.continuousLoop();
   }
-  
+
   loopOver() {
     return new Promise((resolve, reject) => {
       const { array } = this;

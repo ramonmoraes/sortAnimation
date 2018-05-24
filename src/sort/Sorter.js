@@ -1,5 +1,6 @@
 'use strict';
 import BubbleSort from './BubbleSort';
+import QuickleSort from './BubbleSort';
 
 export default class Sorter {
   constructor(options = {}) {
@@ -23,7 +24,7 @@ export default class Sorter {
             new BubbleSort(sortObject);
         break;
         default:
-            new BubbleSort(sortObject);
+            new QuickSort(sortObject);
         break;
     }
   }
