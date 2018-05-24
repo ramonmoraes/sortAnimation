@@ -26,9 +26,8 @@ export default class QuickSort {
   }
 
   partitionLomuto(array, left, right) {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
-
         const pivot = right;
         let i = left;
         let j;
@@ -42,7 +41,7 @@ export default class QuickSort {
 
         this.swap(i, j)
         resolve(i);
-      },450)
+      }, 90)
     });
   }
 
@@ -55,9 +54,7 @@ export default class QuickSort {
 
   callAnimation() {
     if (this.requestAnimationCallback) {
-      setTimeout(() => {
-        this.requestAnimationCallback(this.array);
-      }, 15)
+      this.requestAnimationCallback(this.array);
     }
   }
 }
