@@ -4,31 +4,36 @@ export default class QuickSort {
   constructor(options = {}) {
     this.array = options.array;
     const len = this.array.length;
-    console.log(this.array);
-    const sorted = this.sort(this.array, 0, len - 1);
-    console.log(this.array);
+
+    this.sort(this.array, 0, len - 1);
   }
 
-  sort(array, begin, end) {
-    const pivot = end;
-    let i = begin - 1;
-    let sorting = true;
+  sort(array, left, right) {
+    var pivot = this.partitionLomuto(array, left, right); // you can play with both partition
 
-    if (begin >= end) {
-      return true;
+    if (left < pivot - 1) {
+      this.sort(array, left, pivot - 1);
     }
+    if (right > pivot) {
+      this.sort(array, pivot, right);
+    }
+    return array;
 
-    while ( begin <= end + 1) {
-      if (array[begin] < array[pivot]) {
+  }
+
+  partitionLomuto(array, left, right) {
+    const pivot = right;
+    let i = left;
+    let j;
+    for (j = left; j < right; j++) {
+      if (array[j] <= array[pivot]) {
+        this.swap(i, j);
         i++;
-        this.swap(i, begin);
       }
-      begin++;
     }
 
-    this.swap(i + 1, pivot);
-    this.sort(this.array, begin, i);
-    this.sort(this.array, i + 1, end);
+    this.swap(i, j);
+    return i;
   }
 
   swap(i, j) {

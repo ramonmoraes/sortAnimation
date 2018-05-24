@@ -1,6 +1,6 @@
 'use strict';
 import BubbleSort from './BubbleSort';
-import QuickleSort from './BubbleSort';
+import QuickSort from './QuickSort';
 
 export default class Sorter {
   constructor(options = {}) {
@@ -16,15 +16,18 @@ export default class Sorter {
   selectSort() {
     const { sortType, array, requestAnimationCallback } = this;
     const sortObject = {
-        array,
-        requestAnimationCallback,
+      array,
+      requestAnimationCallback,
     };
     switch (sortType) {
-        case 'bubbleSort':
-            new BubbleSort(sortObject);
+      case 'bubbleSort':
+        new BubbleSort(sortObject);
         break;
-        default:
-            new QuickSort(sortObject);
+      case 'quickSort':
+        new QuickSort(sortObject);
+        break;
+      default:
+        new QuickSort(sortObject);
         break;
     }
   }
