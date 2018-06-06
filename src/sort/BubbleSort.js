@@ -1,50 +1,30 @@
 "use strict";
+import Sorter from "./Sorter.js";
 
-export default class BubbleSort {
-  constructor(options = {}) {
-    Object.assign(this, options);
-    this.continuousLoop();
-  }
-
+export default class BubbleSort extends Sorter {
   loopOver() {
     return new Promise((resolve, reject) => {
       const { array } = this;
       let swapped = false;
-      setTimeout(() => {
-        for (let i = 0; i < array.length; i++) {
-          if (array[i] > array[i + 1]) {
-            this.swapPositions(i);
-            this.callAnimation(array);
-            swapped = true;
-          }
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] > array[i + 1]) {
+          this.swap(i, i + 1);
+          swapped = true;
         }
-        swapped ? resolve() : reject();
-      }, 15);
+      }
+      swapped ? resolve() : reject();
     });
   }
 
-  async continuousLoop() {
+  async sort() {
     let swapped = true;
     while (swapped) {
       try {
         await this.loopOver();
-      } catch(err) {
+      } catch (err) {
         swapped = false;
         console.log(this.array);
       }
-    }
-  }
-
-  swapPositions(posAnterior) {
-    const { array } = this;
-    let temp = array[posAnterior];
-    array[posAnterior] = array[posAnterior + 1];
-    array[posAnterior + 1] = temp;
-  }
-
-  callAnimation(array) {
-    if (this.requestAnimationCallback) {
-      this.requestAnimationCallback(array);
     }
   }
 }
