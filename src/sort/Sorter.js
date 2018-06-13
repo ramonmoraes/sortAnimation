@@ -22,7 +22,7 @@ export default class Sorter {
   };
 
   start(args) {
-    throw new Error('You should implement sort');
+    throw new Error('You should implement start');
   }
   
 
