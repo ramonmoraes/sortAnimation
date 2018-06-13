@@ -4,10 +4,6 @@ import CanvasArray from "../canvas/CanvasArray.js";
 export default class Sorter {
   constructor(options = {}) {
     this.array = this.createRandomArray();
-    this.canvas = new CanvasArray({
-      array: this.array,
-      wrapper: document.querySelector(".canvas-wrapper")
-    });
   }
 
   createRandomArray(arrayLength = 200) {
@@ -18,14 +14,26 @@ export default class Sorter {
     return newArr;
   }
 
+  setup() {
+    this.canvas = new CanvasArray({
+      array: this.array,
+      wrapper: document.querySelector(".canvas-wrapper")
+    });
+  };
+
+  start(args) {
+    throw new Error('You should implement sort');
+  }
+  
+
+  sort() {
+    throw new Error('You should implement sort');
+  }
+  
   swap(i, j) {
     const temp = this.array[i];
     this.array[i] = this.array[j];
     this.array[j] = temp;
-  }
-
-  sort() {
-    throw new Error('You should implement sort');
   }
 
   drawArray(arr) {

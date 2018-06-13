@@ -2,8 +2,8 @@ import BubbleSort from "./BubbleSort";
 import QuickSort from "./QuickSort";
 
 const SorterMapper = {
-  BubbleSort,
-  QuickSort
+  BubbleSort: new BubbleSort(),
+  // QuickSort: new QuickSort()
 };
 
 export default SorterMapper;

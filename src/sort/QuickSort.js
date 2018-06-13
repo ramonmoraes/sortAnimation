@@ -1,60 +1,39 @@
 "use strict";
+import Sorter from './Sorter';
 
-export default class QuickSort {
-  constructor(options = {}) {
-    Object.assign(this, options);
-    const len = this.array.length;
-    this.sort(this.array, 0, len - 1);
-    console.log(this.array);
+export default class QuickSort extends Sorter {
+  constructor() {
+    super();
   }
 
-  loop() {
-
+  start() {
+    const len = this.array.length;
+    this.sort(this.array, 0, len - 1);
   }
 
   sort(array, left, right) {
-    this.partitionLomuto(array, left, right)
-      .then(pivot => {
-        if (left < pivot - 1) {
-          this.sort(array, left, pivot - 1);
-        }
-        if (right > pivot) {
-          this.sort(array, pivot, right);
-        }
-        return array;
-      })
-  }
-
-  partitionLomuto(array, left, right) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const pivot = right;
-        let i = left;
-        let j;
-
-        for (j = left; j < right; j++) {
-          if (array[j] <= array[pivot]) {
-            this.swap(i, j);
-            i++;
-          }
-        }
-
-        this.swap(i, j)
-        resolve(i);
-      }, 90)
+    this.partitionLomuto(array, left, right).then(pivot => {
+      if (left < pivot - 1) {
+        this.sort(array, left, pivot - 1);
+      }
+      if (right > pivot) {
+        this.sort(array, pivot, right);
+      }
+      return array;
     });
   }
 
-  swap(i, j) {
-    const temp = this.array[i];
-    this.array[i] = this.array[j];
-    this.array[j] = temp;
-    this.callAnimation();
-  }
+  partitionLomuto(array, left, right) {
+    const pivot = right;
+    let i = left;
+    let j;
 
-  callAnimation() {
-    if (this.requestAnimationCallback) {
-      this.requestAnimationCallback(this.array);
+    for (j = left; j < right; j++) {
+      if (array[j] <= array[pivot]) {
+        this.swap(i, j);
+        i++;
+      }
     }
+    this.swap(i, j);
   }
 }
