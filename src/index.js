@@ -1,4 +1,5 @@
 import SorterMapper from './sort/SorterMapper.js';
+import './css/style.scss';
 
 const createListOfSortTypes = () => {
   const list = [];
@@ -11,5 +12,5 @@ const createListOfSortTypes = () => {
 window.onload = () => {
   // const initButton = document.querySelector("#canvas-init-button");
   // initButton.addEventListener("click", startSorting);
-  
+  console.log('WOFE');
 };
