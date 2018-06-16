@@ -2,10 +2,6 @@
 import CanvasArray from "../canvas/CanvasArray.js";
 
 export default class Sorter {
-  constructor(options = {}) {
-    this.array = this.createRandomArray();
-  }
-
   createRandomArray(arrayLength = 200) {
     let newArr = [];
     for (let i = 0; i < arrayLength; i++) {
@@ -14,7 +10,8 @@ export default class Sorter {
     return newArr;
   }
 
-  setup() {
+  setup(arrayLength) {
+    this.array = this.createRandomArray(arrayLength);
     this.canvas = new CanvasArray({
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")

@@ -22,8 +22,9 @@ const createOptions = (selectOptions) => {
 const startSortBasedOnSelectValue = (selectOptions) => {
   const initButton = document.querySelector("#canvas-init-button");
   initButton.addEventListener("click", () => {
+    const arrayLength = document.querySelector("#canvas-number-input").value;
     const sorter = SorterMapper[selectOptions.value];
-    sorter.setup();
+    sorter.setup(arrayLength);
     sorter.start();
   });
 }
