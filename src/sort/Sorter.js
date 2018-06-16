@@ -24,12 +24,12 @@ export default class Sorter {
   start(args) {
     throw new Error('You should implement start');
   }
-  
+
 
   sort() {
     throw new Error('You should implement sort');
   }
-  
+
   swap(i, j) {
     const temp = this.array[i];
     this.array[i] = this.array[j];
