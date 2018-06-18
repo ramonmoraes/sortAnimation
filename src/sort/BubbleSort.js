@@ -19,6 +19,8 @@ export default class BubbleSort extends Sorter {
       for (let i = 0; i < array.length; i++) {
         if (array[i] > array[i + 1]) {
           super.swap(i, i + 1);
+          super.drawArray(array);
+          // console.log(array);
           swapped = true;
         }
       }

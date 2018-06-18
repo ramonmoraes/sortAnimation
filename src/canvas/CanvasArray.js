@@ -7,7 +7,6 @@ export default class CanvasArray {
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
     this.array = options.array;
-
     this.setUpCanvas();
     this.setSpaceBetweenLines();
     this.setHeightPercent();
@@ -34,12 +33,15 @@ export default class CanvasArray {
   }
 
   drawArray(array) {
-    const { heightPercent, spaceBetween } = this;
-    let posX = 5;
-    this.clearCanvas();
-    array.forEach(number => {
-      this.drawLine(posX, number / heightPercent);
-      posX += spaceBetween;
+    return new Promise(() => {
+      const { heightPercent, spaceBetween } = this;
+      let posX = 5;
+      this.clearCanvas();
+      array.forEach(number => {
+        this.drawLine(posX, number / heightPercent);
+        posX += spaceBetween;
+      });
+      resolve();
     });
   }
 

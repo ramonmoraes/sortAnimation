@@ -16,15 +16,14 @@ export default class Sorter {
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")
     });
-  };
-
-  start(args) {
-    throw new Error('You should implement start');
   }
 
+  start(args) {
+    throw new Error("You should implement start");
+  }
 
   sort() {
-    throw new Error('You should implement sort');
+    throw new Error("You should implement sort");
   }
 
   swap(i, j) {
@@ -33,7 +32,8 @@ export default class Sorter {
     this.array[j] = temp;
   }
 
-  drawArray(arr) {
-    this.canvas.drawArray(arr);
+  async drawArray (array) {
+    const animation = () => this.canvas.drawArray(array);
+    await animation();
   }
 }
