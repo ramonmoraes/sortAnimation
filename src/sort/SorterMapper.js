@@ -1,9 +1,9 @@
 import BubbleSort from "./BubbleSort";
-import QuickSort from "./QuickSort";
+import InsertionSort from "./InsertionSort";
 
 const SorterMapper = {
   BubbleSort: new BubbleSort(),
-  // QuickSort: new QuickSort()
+  InsertionSort: new InsertionSort()
 };
 
 export default SorterMapper;
