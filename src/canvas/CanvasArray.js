@@ -33,7 +33,7 @@ export default class CanvasArray {
   }
 
   drawArray(array) {
-    return new Promise(() => {
+    return new Promise((resolve) => {
       const { heightPercent, spaceBetween } = this;
       let posX = 5;
       this.clearCanvas();

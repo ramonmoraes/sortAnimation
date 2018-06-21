@@ -32,7 +32,7 @@ export default class Sorter {
     this.array[j] = temp;
   }
 
-  async drawArray (array) {
+  async drawedArray (array) {
     const animation = () => this.canvas.drawArray(array);
     await animation();
   }
