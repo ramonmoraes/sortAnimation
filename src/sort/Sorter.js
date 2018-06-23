@@ -1,5 +1,5 @@
 "use strict";
-import CanvasArray from "../canvas/CanvasArray.js";
+// import CanvasArray from "../canvas/CanvasArray.js";
 
 export default class Sorter {
   createRandomArray(arrayLength = 200) {
@@ -10,8 +10,8 @@ export default class Sorter {
     return newArr;
   }
 
-  setup(arrayLength) {
-    this.array = this.createRandomArray(arrayLength);
+  setup({ arrayLength, array }) {
+    this.array = array || this.createRandomArray(arrayLength);
     this.canvas = new CanvasArray({
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")
