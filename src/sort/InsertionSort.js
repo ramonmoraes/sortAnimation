@@ -7,8 +7,7 @@ export default class InsertionSort extends Sorter {
   }
 
   start() {
-    this.sort();
-    console.log(this.array);
+    return this.sort();
   }
 
   sort() {
