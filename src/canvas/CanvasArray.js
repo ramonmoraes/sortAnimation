@@ -33,15 +33,12 @@ export default class CanvasArray {
   }
 
   drawArray(array) {
-    return new Promise((resolve) => {
-      const { heightPercent, spaceBetween } = this;
-      let posX = 5;
-      this.clearCanvas();
-      array.forEach(number => {
-        this.drawLine(posX, number / heightPercent);
-        posX += spaceBetween;
-      });
-      resolve();
+    const { heightPercent, spaceBetween } = this;
+    let posX = 5;
+    this.clearCanvas();
+    array.forEach(number => {
+      this.drawLine(posX, number / heightPercent);
+      posX += spaceBetween;
     });
   }
 
