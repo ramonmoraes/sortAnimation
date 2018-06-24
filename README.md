@@ -26,7 +26,7 @@ export default class MyNewSortClass extends Sorter {
 }
 ```
 
-Then add your sorter on ´/src/sort/SorterMapper.js´
+Then add your sorter at ´/src/sort/SorterMapper.js´
 
 ```js
 
