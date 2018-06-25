@@ -1,6 +1,5 @@
 import SorterMapper from "./sort/SorterMapper.js";
 import "./css/style.scss";
-import test from "./test/sortArray";
 
 const createListOfSortTypes = () => {
   const list = [];

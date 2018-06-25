@@ -3,10 +3,11 @@
 export default class CanvasArray {
   constructor(options = {}) {
     this.wrapper = options.wrapper;
-
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
-    this.array = options.array;
+    this.referenceArray = options.array;
+    this.drawableArrays = [];
+
     this.setUpCanvas();
     this.setSpaceBetweenLines();
     this.setHeightPercent();
@@ -22,14 +23,26 @@ export default class CanvasArray {
   }
 
   setSpaceBetweenLines() {
-    const { canvas, array } = this;
-    this.spaceBetween = (canvas.clientWidth - 20) / array.length;
+    const { canvas, referenceArray } = this;
+    this.spaceBetween = (canvas.clientWidth - 20) / referenceArray.length;
   }
 
   setHeightPercent() {
-    const { canvas, array } = this;
-    const max = Math.max(...array);
+    const { canvas, referenceArray } = this;
+    const max = Math.max(...referenceArray);
     this.heightPercent = max / canvas.clientHeight;
+  }
+
+  appendDrawableArray(array = []) {
+    this.drawableArrays.push(array);
+  }
+
+  beginDrawAnimation() {
+    this.drawableArrays.forEach(arr => {
+      setTimeout(() => {
+        this.drawArray(arr);
+      }, 15);
+    });
   }
 
   drawArray(array) {

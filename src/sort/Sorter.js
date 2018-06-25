@@ -1,5 +1,5 @@
 "use strict";
-// import CanvasArray from "../canvas/CanvasArray.js";
+import CanvasArray from "../canvas/CanvasArray.js";
 
 export default class Sorter {
   createRandomArray(arrayLength = 200) {
@@ -16,9 +16,11 @@ export default class Sorter {
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")
     });
+    this.start();
+    this.canvas.beginDrawAnimation();
   }
 
-  start(args) {
+  start() {
     throw new Error("You should implement start");
   }
 
@@ -32,8 +34,7 @@ export default class Sorter {
     this.array[j] = temp;
   }
 
-  async drawedArray (array) {
-    const animation = () => this.canvas.drawArray(array);
-    await animation();
+  appendDrawableArray (arr) {
+    this.canvas.appendDrawableArray(arr);
   }
 }
