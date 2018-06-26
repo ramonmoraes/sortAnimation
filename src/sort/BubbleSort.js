@@ -7,9 +7,7 @@ export default class BubbleSort extends Sorter {
   }
 
   start() {
-    console.log(this.array);
     this.sort();
-    console.log(this.array);
   }
 
   sort() {
@@ -20,7 +18,6 @@ export default class BubbleSort extends Sorter {
       for (let i = 0; i < array.length; i++) {
         if (array[i] > array[i + 1]) {
           super.swap(i, i + 1);
-          super.appendDrawableArray(array);
           swapped = true;
         }
       }

@@ -16,6 +16,8 @@ export default class Sorter {
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")
     });
+
+    this.appendDrawableArray();
     this.start();
     this.canvas.beginDrawAnimation();
   }
@@ -32,9 +34,10 @@ export default class Sorter {
     const temp = this.array[i];
     this.array[i] = this.array[j];
     this.array[j] = temp;
+    this.appendDrawableArray();
   }
 
-  appendDrawableArray (arr) {
-    this.canvas.appendDrawableArray(arr);
+  appendDrawableArray() {
+    this.canvas.appendDrawableArray(this.array);
   }
 }

@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 export default class CanvasArray {
   constructor(options = {}) {
@@ -38,12 +38,18 @@ export default class CanvasArray {
   }
 
   beginDrawAnimation() {
-    this.drawableArrays.forEach(arr => {
-      setTimeout(() => {
-        this.drawArray(arr);
-      }, 15);
-    });
+    this.drawableArrays.forEach(this.drawArray)
   }
+
+  // beginDrawAnimation(count = 0) {
+  //   const { drawableArrays } = this;
+  //   if (count != drawableArrays.length) {
+  //     this.drawArray(drawableArrays[count]);
+  //     const animation = () => this.beginDrawAnimation(count);
+  //     count++;
+  //     window.requestAnimationFrame(animation)
+  //   }
+  // }
 
   drawArray(array) {
     const { heightPercent, spaceBetween } = this;
