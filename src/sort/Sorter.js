@@ -10,13 +10,12 @@ export default class Sorter {
     return newArr;
   }
 
-  setup({ arrayLength, array }) {
+  setup({ arrayLength, array, test = false }) {
     this.array = array || this.createRandomArray(arrayLength);
     this.canvas = new CanvasArray({
       array: this.array,
       wrapper: document.querySelector(".canvas-wrapper")
-    });
-
+    })
     this.appendDrawableArray();
     this.start();
     this.canvas.beginDrawAnimation();

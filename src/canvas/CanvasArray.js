@@ -38,18 +38,10 @@ export default class CanvasArray {
   }
 
   beginDrawAnimation() {
-    this.drawableArrays.forEach(this.drawArray)
+    this.drawableArrays.forEach((array) => {
+      this.drawArray(array);
+    })
   }
-
-  // beginDrawAnimation(count = 0) {
-  //   const { drawableArrays } = this;
-  //   if (count != drawableArrays.length) {
-  //     this.drawArray(drawableArrays[count]);
-  //     const animation = () => this.beginDrawAnimation(count);
-  //     count++;
-  //     window.requestAnimationFrame(animation)
-  //   }
-  // }
 
   drawArray(array) {
     const { heightPercent, spaceBetween } = this;
